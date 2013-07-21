@@ -5,7 +5,13 @@ public class matrix {
 	private int[][] matrixObj;
 	
 	public void newMatrix(int rows, int cols){
-		matrixObj = new int[rows][cols];	
+		matrixObj = new int[rows][cols];
+
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < cols; j++) {
+				matrixObj[i][j] = 0;
+			}
+		}
 	}
 	
 	public int getLength() {
