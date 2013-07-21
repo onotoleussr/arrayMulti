@@ -1,19 +1,28 @@
 package arrayMultiplication;
 
+import java.util.Scanner;
+
 public class arrayMultiCounting {
 
 	public static void main(String[] args) {
 
 		
-		int[][] firstMatrix  = new int[3][3];
-		int[][] secondMatrix = new int[3][3];
-		
-		
-		System.out.println("Не будем выпендриваться, возьмем 2 квадратных матрицы размером 3\n");
+		matrix firstMatrix  = new matrix();
+		matrix secondMatrix = new matrix();
+
+
 		System.out.println("Забиваем значениями по Random()*100");
 		
 		
-		//Заполняем первую и вторую матрицу сразу
+		
+		
+		
+		
+		
+		
+		
+		
+/*		//Заполняем первую и вторую матрицу сразу
 		for(int i=0; i<firstMatrix.length; i++){
 			
 			for(int j=0; j<secondMatrix.length; j++){
@@ -44,14 +53,18 @@ public class arrayMultiCounting {
 			}
 			System.out.print("\n");
 		}
-		
+*/		
 		//Создаем массив результата
 
-		int[][] resultMatrix = new int[firstMatrix.length][secondMatrix.length];
+		matrix resultMatrix = new matrix();
+		
+		
+		//[secondMatrix.GetMatrixLength()][secondMatrix.GetMatrixLength()]
+		
 		
 		//Расчитываем
 		
-		for(int i=0;i<3;i++){
+/*		for(int i=0;i<3;i++){
 			
 			for(int j=0;j<3;j++){
 				
@@ -73,5 +86,16 @@ public class arrayMultiCounting {
 			System.out.print("\n");
 		
 		}
+*/	}
+	
+	
+	public int getIntFromKeybord(){
+		
+		Scanner sc = new Scanner (System.in);
+		int num = sc.nextInt();
+
+		return num;
 	}
+	
+	
 }
