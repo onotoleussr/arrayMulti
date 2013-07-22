@@ -6,96 +6,69 @@ public class arrayMultiCounting {
 
 	public static void main(String[] args) {
 
-		
-		matrix firstMatrix  = new matrix();
+		matrix firstMatrix = new matrix();
 		matrix secondMatrix = new matrix();
 
+		int fmLenght = getIntFromKeybord("Введите длину перовой матрицы");
+		int fmHeight = getIntFromKeybord("Введите высоту перовой матрицы");
 
-		System.out.println("Забиваем значениями по Random()*100");
+		int smLenght = getIntFromKeybord("Введите длину второй матрицы");
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-/*		//Заполняем первую и вторую матрицу сразу
-		for(int i=0; i<firstMatrix.length; i++){
-			
-			for(int j=0; j<secondMatrix.length; j++){
-			
-				firstMatrix[i][j]=(int) (Math.random()*100);
-				secondMatrix[i][j]=(int) (Math.random()*100);
-			}
-		}
-		
-		System.out.println("Значения первой матрици");
-		
-		for(int i=0; i<3; i++){
-			
-			for(int j=0; j<3; j++){
-			
-				System.out.print(firstMatrix[i][j]+((j<2)?" | ":""));
-			}
-			System.out.print("\n");
-		}
-		
-		System.out.println("\nЗначения второй матрици");
-		
-		for(int i=0; i<3; i++){
-			
-			for(int j=0; j<3; j++){
-			
-				System.out.print(secondMatrix[i][j]+ ((j<2)?" | ":""));
-			}
-			System.out.print("\n");
-		}
+/*		System.out.println(fmLenght);
+		System.out.println(fmHeight);
+		System.out.println(smLenght);
 */		
-		//Создаем массив результата
+		
+		
+		firstMatrix.newMatrix(fmLenght, fmHeight, "t1");
+		secondMatrix.newMatrix(smLenght, firstMatrix.getLength(), "t2");
 
+		/*System.out.println(firstMatrix.getHeight());
+		
+		System.out.println(secondMatrix.getHeight());*/
+		
+		
+		
+		System.out
+				.println("Высота второй матрицы установлена равной длине перовой матрицы раной :"
+						+ Integer.toString(firstMatrix.getLength())
+						+ " в связи с правилами перемножения матриц!!!\n");
+
+		System.out
+				.println("Забиваем первую матрицу значениями по Random()*100");
+		firstMatrix.fillMatrix();
+		firstMatrix.printMatrixValues();
+
+		System.out
+				.println("\nЗабиваем вторую матрицу значениями по Random()*100");
+		secondMatrix.fillMatrix();
+		secondMatrix.printMatrixValues();
+
+		// Создаем матрицу результата
 		matrix resultMatrix = new matrix();
-		
-		
-		//[secondMatrix.GetMatrixLength()][secondMatrix.GetMatrixLength()]
-		
-		
-		//Расчитываем
-		
-/*		for(int i=0;i<3;i++){
-			
-			for(int j=0;j<3;j++){
-				
-				resultMatrix[i][j] = resultMatrix[i][j] + firstMatrix[i][j] * secondMatrix[j][i];
-				
-			}
-		}
-		
-		System.out.println("\nЗначения результатирующей матрици");
-		
-		for(int i=0;i<3;i++){
-			
-			for(int j=0;j<3;j++){
-				
-				System.out.print(resultMatrix[i][j] + ((j<2)?" | ":""));
-				
-			}
+		resultMatrix.newMatrix(firstMatrix.getHeight(),
+				secondMatrix.getLength(), "r1");
+		resultMatrix.multiplicate(firstMatrix, secondMatrix);
 
-			System.out.print("\n");
-		
-		}
-*/	}
-	
-	
-	public int getIntFromKeybord(){
-		
-		Scanner sc = new Scanner (System.in);
-		int num = sc.nextInt();
+		System.out.println("\nРезультат перемножения");
+		resultMatrix.printMatrixValues();
 
-		return num;
 	}
 	
 	
+	public static int getIntFromKeybord(String outText){
+		
+		int num = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println(outText.toString());
+		
+		num = (int) sc.nextInt();
+//		sc.close();
+		
+		return num;
+	}
+
 }

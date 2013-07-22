@@ -3,21 +3,27 @@ package arrayMultiplication;
 public class matrix {
 
 	private int[][] matrixObj;
-
-	public void newMatrix(int rows, int cols) {
+	public String sName = new String();
+	
+	public void newMatrix(int rows, int cols, String n) {
+		
 		matrixObj = new int[rows][cols];
-
-		for (int i = 0; i < rows; i++) {
+		this.sName = n;
+/*		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
 				matrixObj[i][j] = 0;
 			}
 		}
+*/	
+		
+	System.out.println(sName);
+	
 	}
 
 	public void fillMatrix() {
-		for (int i = 0; i < getLength(); i++) {
-			for (int j = 0; j < getHeight(); j++) {
-				matrixObj[i][j] = (int) (Math.random() * 100);
+		for (int i = 0; i < matrixObj.length; i++) {
+			for (int j = 0; j < matrixObj[0].length; j++) {
+				matrixObj[i][j] = (int) (Math.random() * 10);
 			}
 		}
 	}
@@ -39,33 +45,36 @@ public class matrix {
 	}
 
 	public void printMatrixValues() {
+		
+		System.out.println(sName);
 
 		System.out.println("\nЗначения матрици");
 
-		for (int i = 0; i < getLength(); i++) {
-			for (int j = 0; j < getHeight(); j++) {
-				System.out.print(matrixObj[i][j] + ((j < 2) ? " | " : ""));
+		for (int i = 0; i < matrixObj.length; i++) {
+			for (int j = 0; j < matrixObj[0].length; j++) {
+				System.out.print(matrixObj[i][j] + ((j < matrixObj.length-1) ? " | " : " "));
 			}
 
 			System.out.print("\n");
 		}
 	}
 	
-	public void matrixMultiplicate(matrix firstM, matrix secondM) {
+	public void multiplicate(matrix firstM, matrix secondM) {
 
-		for (int i = 0; i < getLength(); i++) {
+		System.out.println(sName);
 
-			for (int j = 0; j < getHeight(); j++) {
+		for (int i = 0; i < this.getLength(); i++) {
+
+			for (int j = 0; j < this.getHeight(); j++) {
 
 				int newValue = 0;
 
 				for (int k = 0; k < firstM.getLength(); k++) {
 
-					newValue = newValue + getValue(i, j)
-							+ firstM.getValue(i, k) * secondM.getValue(k, i);
+					newValue = newValue + getValue(i, j) + firstM.getValue(i, k) * secondM.getValue(k, j);
 				}
 
-				setValue(i, j, newValue);
+				this.setValue(i, j, newValue);
 			}
 		}
 	}
