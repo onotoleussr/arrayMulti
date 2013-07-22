@@ -18,17 +18,17 @@ public class matrix {
 	public void fillMatrix() {
 		for (int i = 0; i < matrixObj.length; i++) {
 			for (int j = 0; j < matrixObj[0].length; j++) {
-				matrixObj[i][j] = (int) (Math.random() * 10);
+				matrixObj[i][j] = (int) (Math.random() * 100);
 			}
 		}
 	}
 
 	public int getLength() {
-		return matrixObj.length;
+		return matrixObj[0].length;
 	}
 
 	public int getHeight() {
-		return matrixObj[0].length;
+		return matrixObj.length;
 	}
 
 	public int getValue(int i, int j) {
@@ -43,10 +43,10 @@ public class matrix {
 
 		System.out.println("\nЗначения матрици");
 
-		for (int i = 0; i < matrixObj.length; i++) {
-			for (int j = 0; j < matrixObj[0].length; j++) {
+		for (int i = 0; i < getHeight(); i++) {
+			for (int j = 0; j < getLength(); j++) {
 				System.out.print(matrixObj[i][j]
-						+ ((j < matrixObj.length - 1) ? " | " : " "));
+						+ ((j < getLength() - 1) ? " | " : " "));
 			}
 
 			System.out.print("\n");
@@ -55,9 +55,9 @@ public class matrix {
 
 	public void multiplicate(matrix firstM, matrix secondM) {
 
-		for (int i = 0; i < this.getLength(); i++) {
+		for (int i = 0; i < getHeight(); i++) {
 
-			for (int j = 0; j < this.getHeight(); j++) {
+			for (int j = 0; j < getLength(); j++) {
 
 				int newValue = 0;
 
@@ -67,7 +67,7 @@ public class matrix {
 							+ firstM.getValue(i, k) * secondM.getValue(k, j);
 				}
 
-				this.setValue(i, j, newValue);
+				setValue(i, j, newValue);
 			}
 		}
 	}

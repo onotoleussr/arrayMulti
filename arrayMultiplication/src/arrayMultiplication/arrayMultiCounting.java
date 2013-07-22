@@ -9,14 +9,14 @@ public class arrayMultiCounting {
 		matrix firstMatrix = new matrix();
 		matrix secondMatrix = new matrix();
 
-		int fmLenght = getIntFromKeybord("Введите длину перовой матрицы");
-		int fmHeight = getIntFromKeybord("Введите высоту перовой матрицы");
+		int fmCols = getIntFromKeybord("Введите длину перовой матрицы");
+		int fmRaws = getIntFromKeybord("Введите высоту перовой матрицы");
 
-		int smLenght = getIntFromKeybord("Введите длину второй матрицы");
+		int smCols = getIntFromKeybord("Введите длину второй матрицы");
 		
 		
-		firstMatrix.newMatrix(fmHeight, fmLenght);
-		secondMatrix.newMatrix(smLenght, firstMatrix.getLength());
+		firstMatrix.newMatrix(fmRaws, fmCols);
+		secondMatrix.newMatrix(firstMatrix.getLength(), smCols);
 
 		System.out
 				.println("Высота второй матрицы установлена равной длине перовой матрицы раной :"
