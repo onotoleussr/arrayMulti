@@ -15,21 +15,9 @@ public class arrayMultiCounting {
 		int smLenght = getIntFromKeybord("Введите длину второй матрицы");
 		
 		
-/*		System.out.println(fmLenght);
-		System.out.println(fmHeight);
-		System.out.println(smLenght);
-*/		
-		
-		
-		firstMatrix.newMatrix(fmLenght, fmHeight, "t1");
-		secondMatrix.newMatrix(smLenght, firstMatrix.getLength(), "t2");
+		firstMatrix.newMatrix(fmHeight, fmLenght);
+		secondMatrix.newMatrix(smLenght, firstMatrix.getLength());
 
-		/*System.out.println(firstMatrix.getHeight());
-		
-		System.out.println(secondMatrix.getHeight());*/
-		
-		
-		
 		System.out
 				.println("Высота второй матрицы установлена равной длине перовой матрицы раной :"
 						+ Integer.toString(firstMatrix.getLength())
@@ -48,7 +36,7 @@ public class arrayMultiCounting {
 		// Создаем матрицу результата
 		matrix resultMatrix = new matrix();
 		resultMatrix.newMatrix(firstMatrix.getHeight(),
-				secondMatrix.getLength(), "r1");
+				secondMatrix.getLength());
 		resultMatrix.multiplicate(firstMatrix, secondMatrix);
 
 		System.out.println("\nРезультат перемножения");

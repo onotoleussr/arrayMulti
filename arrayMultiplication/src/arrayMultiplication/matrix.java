@@ -3,21 +3,16 @@ package arrayMultiplication;
 public class matrix {
 
 	private int[][] matrixObj;
-	public String sName = new String();
-	
-	public void newMatrix(int rows, int cols, String n) {
-		
+
+	public void newMatrix(int rows, int cols) {
+
 		matrixObj = new int[rows][cols];
-		this.sName = n;
-/*		for (int i = 0; i < rows; i++) {
+		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
 				matrixObj[i][j] = 0;
 			}
 		}
-*/	
-		
-	System.out.println(sName);
-	
+
 	}
 
 	public void fillMatrix() {
@@ -27,7 +22,7 @@ public class matrix {
 			}
 		}
 	}
-	
+
 	public int getLength() {
 		return matrixObj.length;
 	}
@@ -45,23 +40,20 @@ public class matrix {
 	}
 
 	public void printMatrixValues() {
-		
-		System.out.println(sName);
 
 		System.out.println("\nЗначения матрици");
 
 		for (int i = 0; i < matrixObj.length; i++) {
 			for (int j = 0; j < matrixObj[0].length; j++) {
-				System.out.print(matrixObj[i][j] + ((j < matrixObj.length-1) ? " | " : " "));
+				System.out.print(matrixObj[i][j]
+						+ ((j < matrixObj.length - 1) ? " | " : " "));
 			}
 
 			System.out.print("\n");
 		}
 	}
-	
-	public void multiplicate(matrix firstM, matrix secondM) {
 
-		System.out.println(sName);
+	public void multiplicate(matrix firstM, matrix secondM) {
 
 		for (int i = 0; i < this.getLength(); i++) {
 
@@ -71,15 +63,13 @@ public class matrix {
 
 				for (int k = 0; k < firstM.getLength(); k++) {
 
-					newValue = newValue + getValue(i, j) + firstM.getValue(i, k) * secondM.getValue(k, j);
+					newValue = newValue + getValue(i, j)
+							+ firstM.getValue(i, k) * secondM.getValue(k, j);
 				}
 
 				this.setValue(i, j, newValue);
 			}
 		}
 	}
-
-	
-	
 
 }
